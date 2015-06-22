@@ -1,0 +1,10 @@
+kernel=zImage
+ramdisk=RAMDISK
+page_size=2048
+kernel_size=3769412
+ramdisk_size=170160
+base_addr=0x10000000
+kernel_offset=0x00008000
+ramdisk_offset=0x01000000
+tags_offset=0x00000100
+cmd_line=""
