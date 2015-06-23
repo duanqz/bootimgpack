@@ -12,8 +12,9 @@
 
  * 命令方式
 
-    解包 unpack_bootimg.py boot.img output/
-    打包 pack_bootimg.py   BOOT/ boot.img
+    ***解包:*** unpack_bootimg.py boot.img output/
+
+    ***打包:*** pack_bootimg.py   BOOT/ boot.img
 
  * 图形界面
 
@@ -47,8 +48,9 @@ implemented in Python and Shell, now only for Unix-like OS.
 ### Usages
  * Command Mode
 
-    Unpack : unpack_bootimg.py boot.img output/
-    Pack   : pack_bootimg.py BOOT/ boot.img
+    ***Unpack :*** unpack_bootimg.py boot.img output/
+
+    ***Pack   :*** pack_bootimg.py BOOT/ boot.img
 
  * Graphic Mode
 
