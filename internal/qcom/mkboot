@@ -49,7 +49,9 @@ zip_command()
     if [ "$1" == lzop ]; then
         zcommand="lzop -n -f -9"
     elif [ "$1" == lz4 ]; then
-        zcommand="lz4 -f -9"
+        # Coron start: fix bug of lz4 can not be found
+        zcommand="$tooldir/lz4 -f -9"
+        # Coron end
     elif [ "$1" == lzma ]; then
         zcommand="lzma -f -c"
     elif [ "$1" == xz ]; then
