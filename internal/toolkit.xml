@@ -18,7 +18,7 @@
         <unpack>mtk/unpack.sh</unpack>
         <pack>mtk/pack.sh</pack>
     </tool>
-    <tool seq="2" type="MTK-V1" description="Support boot.img of MTK5752, MTK6732, MTK6595">
+    <tool seq="2" type="MTK-V1" description="Support boot.img of MTK6752, MTK6732, MTK6595">
         <unpack>mtk-v1/unpack.sh</unpack>
         <pack>mtk-v1/pack.sh</pack>
     </tool>
