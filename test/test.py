@@ -37,7 +37,11 @@ class TestUnpack(unittest.TestCase):
 
     def test_unpack_mtk(self):
         boot_img = path.join(self.dir, "mtk-boot.img")
-        Utils.assert_type_equals(boot_img, "MTK")
+        Utils.assert_type_equals(boot_img, "MTK-V1")
+
+    def test_unpack_mtk_v1(self):
+        boot_img = path.join(self.dir, "mtk-v1-boot.img")
+        Utils.assert_type_equals(boot_img, "MTK-V1")
 
     def test_unpack_sony(self):
         boot_img = path.join(self.dir, "sony-boot.img")
@@ -59,6 +63,10 @@ class TestPack(unittest.TestCase):
 
     def test_pack_mtk(self):
         boot_dir = path.join(self.dir, "mtk-boot")
+        Utils.asset_pack_succ(boot_dir)
+
+    def test_pack_mtk_v1(self):
+        boot_dir = path.join(self.dir, "mtk-v1-boot")
         Utils.asset_pack_succ(boot_dir)
 
     def test_pack_qcom(self):
@@ -91,9 +99,10 @@ class TestToolKit(unittest.TestCase):
                                       "PACK"   : path.join(bootimg.Toolkit.TOOLS_ROOT, pack_tool) }
             sequence[seq] = (boot_type, description)
 
-        assert len(sequence) == 5
+        assert len(sequence) == 6
 
         assert "MTK" in all_tools
+        assert "MTK-V1" in all_tools
         assert "SONY" in all_tools
         assert "COMMON" in all_tools
         assert "COMMON-V1" in all_tools

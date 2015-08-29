@@ -1,0 +1,81 @@
+on post-fs-data
+	mkdir /data/local/log 0777 shell shell
+	mkdir /data/local/log/lastlog 0777 shell shell
+        #restorecon /system/bin 
+
+service s_lenovocrash /system/bin/setup.lenovo.crash.sh
+   class main
+    oneshot
+
+service lenovocrash /system/bin/init.lenovo.crash.sh
+    class main
+    disabled
+    oneshot
+
+service last_mainlog /system/bin/last_mainlog.sh
+    class main
+    disabled
+    oneshot
+
+service last_dmsglog /system/bin/last_dmsglog.sh
+    class main
+    disabled
+    oneshot
+
+service diag_kernel /system/bin/diag_kernel.sh
+    class main
+    disabled
+    oneshot
+
+service diag_system /system/bin/diag_system.sh
+    class main
+    disabled
+    oneshot
+
+service diag_result /system/bin/diag_result.sh
+    class main
+    disabled
+    oneshot
+
+service am_diag_done /system/bin/am_diag_done.sh
+    class main
+    disabled
+    oneshot
+
+service diag_clear /system/bin/diag_clear.sh
+    class main
+    disabled
+    oneshot
+
+service diag_clear_orig /system/bin/diag_clear_orig.sh
+    class main
+    disabled
+    oneshot
+
+service copy_exp /system/bin/copy_exp.sh
+    class main
+    disabled
+    oneshot
+
+# begin, 20150330 lenovo xucw for lenovo dumpsys 
+service lenovo_dumpsys /system/bin/lenovo_dumpsys.sh
+    class main
+    disabled
+    oneshot
+# end, 20150330 lenovo xucw for lenovo dumpsys 
+
+
+on property:sys.boot_completed=1
+    start copy_exp
+
+
+#on service-exited-zygote
+#     setprop persist.sys.lenovo.Acrash TRUE
+#     start lenovocrash
+
+on property:init.svc.zygote=restarting
+    start lenovocrash
+    
+
+
+
